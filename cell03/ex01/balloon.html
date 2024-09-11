@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .balloon{
+        height: 200px;
+        width: 200px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        background-color: red;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+</style>
+<body>
+    <div class = "balloon" id="balloon" onclick="biggerSize()" onmouseout="lowerSize()"></div>
+</body>
+
+<script>
+    let minSize = 200;
+    let maxSize = 420;
+    let pSize = 200;
+    color = ["red","green","blue"]
+    let i = 0;
+    
+    function biggerSize(){
+        pSize += 10;
+        i++;
+        if(pSize > maxSize) {
+            updateSize(pSize);
+            pSize = minSize;
+        }
+        else {
+            updateSize(pSize);
+        }
+        if(i>2) {
+            i = 0;
+        }
+        updateSize(pSize);
+        updateColor(i);
+        console.log(pSize);
+        console.log(color[i]);
+    }
+    
+    function lowerSize() {
+        i -= 1; 
+        pSize -= 5;
+        if (i < 0) {
+            i = 2;
+        }
+        if (pSize < minSize) {
+            pSize = 200;
+        }
+        else {
+            updateSize(pSize);
+        }
+        updateColor(i);
+    }
+
+    function updateColor(i) {
+        document.getElementById("balloon").style.backgroundColor = color[i];
+    }
+
+    function updateSize(s) {
+        document.getElementById("balloon").style.height = s + "px";
+        document.getElementById("balloon").style.width = s + "px";
+    }
+
+    
+</script>
