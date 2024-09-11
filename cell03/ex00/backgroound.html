@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="backgroound.css">
+    <title>Document</title>
+</head>
+
+<body id="bg">
+    <button class="randombutt" onclick="randomcolor()">Click me!</button>
+</body>
+
+<script>
+    function randomcolor() {
+    num = "#";
+    data = ["0","1","2","3","4","5","6","7","8","9","A","B","D","E","F"];
+    for (let i = 0;i < 6;i++) {
+        const randomnum = Math.floor(Math.random()*15);
+        num += data[randomnum];
+    }
+    console.log(num);
+    document.getElementById("bg").style.backgroundColor = num;
+    }
+</script>
