@@ -1,0 +1,27 @@
+html,body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+td {
+    border: 1px solid;
+    padding: 50px 0 50px 0;
+    font-size: 50px;
+}
+
+table {
+    border: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.yellow {
+    background-color: lightyellow;
+}
+
+.red {
+    background-color: lightcoral;
+}
