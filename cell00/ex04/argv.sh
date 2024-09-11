@@ -3,7 +3,7 @@
 
 if [ "$#" -eq 0 ]; then
     echo "No arguments supplied"
-elif [ "$#" <= 3 ] ; then 
+elif [ "$#" < 3 ] || [ "#$" == 3 ] ; then 
     for arg in "$@"; do 
        echo "$arg"
     done
