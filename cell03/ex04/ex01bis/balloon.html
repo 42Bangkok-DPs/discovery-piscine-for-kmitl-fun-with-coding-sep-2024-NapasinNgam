@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .balloon {
+            height: 200px;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            background-color: red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="balloon" id="balloon"></div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        const minSize = 200;
+        const maxSize = 420;
+        let pSize = 200;
+        const color = ["red", "green", "blue"];
+        let i = 0;
+
+        function biggerSize() {
+            pSize += 10;
+            i++;
+            if (pSize > maxSize) {
+                pSize = minSize;
+            }
+            updateSize(pSize);
+
+            if (i > 2) {
+                i = 0;
+            }
+            updateColor(i);
+
+            console.log(pSize);
+            console.log(color[i]);
+        }
+
+        function lowerSize() {
+            i--;
+            pSize -= 5;
+
+            if (i < 0) {
+                i = 2;
+            }
+            if (pSize < minSize) {
+                pSize = minSize;
+            }
+            updateSize(pSize);
+            updateColor(i);
+        }
+
+        function updateColor(i) {
+            $("#balloon").css("background-color", color[i]);
+        }
+
+        function updateSize(s) {
+            $("#balloon").css({
+                "height": s + "px",
+                "width": s + "px"
+            });
+        }
+
+        $("#balloon").click(biggerSize);
+        $("#balloon").mouseleave(lowerSize);
+    });
+</script>
+
+</html>
+
