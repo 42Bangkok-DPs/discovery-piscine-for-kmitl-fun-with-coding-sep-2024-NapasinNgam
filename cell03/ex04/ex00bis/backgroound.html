@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="backgroound.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body id="bg">
+    <button class="randombutt" >Click me!</button>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $("button").click(function() {
+            let num = "#";
+            const data = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+            for (let i = 0; i < 6; i++) {
+                const randomnum = Math.floor(Math.random() * 16); 
+                num += data[randomnum];
+            }
+            $("#bg").css("background-color", num);
+        });
+    });
+
+</script>
