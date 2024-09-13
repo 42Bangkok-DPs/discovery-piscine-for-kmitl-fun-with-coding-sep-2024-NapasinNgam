@@ -27,7 +27,7 @@ $(document).ready(function() {
         });
         $div.append($removeButton);
 
-        $ftList.append($div);
+        $ftList.prepend($div);
     }
 
     function saveTodos() {
